@@ -13,56 +13,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// routes/web.php
+Auth::routes();
+
+Route::group(['middleware' => ['guest']], function () {
+
+    Route::get('/', function () {
+        return view('auth.login');
+    });
+
+});
+
+
+ //==============================Translate all pages============================
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    ], function(){
-    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-    Route::get('/', function()
-    {
-        return view('dashboard');
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+    ], function () {
+
+     //==============================dashboard============================
+    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+   //==============================dashboard============================
+    Route::group(['namespace' => 'Grades'], function () {
+        Route::resource('Grades', 'GradeController');
     });
-    Auth::routes();
-    Route::get('/test', 'TestController@index')->name('empty');
 
-    Route::resource('grade', 'GradeController');
+    //==============================Classrooms============================
+    Route::group(['namespace' => 'Classrooms'], function () {
+        Route::resource('Classrooms', 'ClassroomController');
+    });
+
 
 });
-
-//Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-//{
-//    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-//    Route::get('/', function()
-//    {
-//        return view('dashboard');
-//    });
-//
-//    Route::get('test',function(){
-//        return View::make('empty');
-//    });
-//});
-
-/** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
-
-
-/*Route::get('/', function () {
-    return view('dashboard');
-});
-Route::get('/test', function () {
-    return view('empty');
-});*/
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

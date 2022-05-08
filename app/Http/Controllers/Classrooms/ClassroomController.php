@@ -1,10 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
 
+
+namespace App\Http\Controllers\Classrooms;
+use App\Http\Controllers\Controller;
+use App\Models\Classroom;
+use App\Models\Grade;
 use Illuminate\Http\Request;
 
-class GradeController extends Controller
+class ClassroomController extends Controller
 {
 
   /**
@@ -14,7 +18,11 @@ class GradeController extends Controller
    */
   public function index()
   {
-      return view('Grades');
+
+      $My_Classes = Classroom::all();
+      $Grades = Grade::all();
+      return view('pages.My_Classes.My_Classes',compact('My_Classes','Grades'));
+
   }
 
   /**
@@ -40,10 +48,10 @@ class GradeController extends Controller
   /**
    * Display the specified resource.
    *
-   * @param int $id
+   * @param  int  $id
    * @return Response
    */
-  public function show(int $id): Response
+  public function show($id)
   {
 
   }
@@ -51,10 +59,10 @@ class GradeController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param int $id
+   * @param  int  $id
    * @return Response
    */
-  public function edit(int $id): Response
+  public function edit($id)
   {
 
   }
@@ -62,10 +70,10 @@ class GradeController extends Controller
   /**
    * Update the specified resource in storage.
    *
-   * @param int $id
+   * @param  int  $id
    * @return Response
    */
-  public function update(int $id): Response
+  public function update($id)
   {
 
   }
@@ -73,10 +81,10 @@ class GradeController extends Controller
   /**
    * Remove the specified resource from storage.
    *
-   * @param int $id
+   * @param  int  $id
    * @return Response
    */
-  public function destroy(int $id): Response
+  public function destroy($id)
   {
 
   }
