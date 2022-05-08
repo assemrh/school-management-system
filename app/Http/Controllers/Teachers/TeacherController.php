@@ -22,7 +22,6 @@ class TeacherController extends Controller
     {
         $Teachers = $this->Teacher->getAllTeachers();
         //$Teachers = Teacher::all();
-        
         return view('pages.Teachers.Teachers',compact('Teachers'));
     }
 
