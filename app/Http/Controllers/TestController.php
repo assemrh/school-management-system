@@ -1,11 +1,12 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TestController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index(): Renderable
     {
-        return view('home');
+        return view('empty');
     }
 }
+

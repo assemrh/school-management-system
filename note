@@ -1,0 +1,15 @@
+
+URL::asset('');
+App::getLocale('');
+
+mcamara laravellocalization
+
+ 	composer require mcamara/laravel-localization
+	php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+
+config/laravellocalization.php
+
+to save last language
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+
+ssh root@194.146.38.194
