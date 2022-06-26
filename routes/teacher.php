@@ -39,7 +39,18 @@ Route::group(
     Route::group(['namespace' => 'Teachers\dashboard'], function () {
         //==============================students============================
      Route::get('student','StudentController@index')->name('student.index');
-
+     Route::get('sections','StudentController@sections')->name('sections');
+     Route::post('attendance','StudentController@attendance')->name('attendance');
+     Route::post('edit_attendance','StudentController@editAttendance')->name('attendance.edit');
+     Route::get('attendance_report','StudentController@attendanceReport')->name('attendance.report');
+     Route::post('attendance_report','StudentController@attendanceSearch')->name('attendance.search');
+     Route::resource('quizzes', 'QuizzController');
+     Route::resource('questions', 'QuestionController');
+     Route::resource('online_zoom_classes', 'OnlineZoomClassesController');
+     Route::get('/indirect', 'OnlineZoomClassesController@indirectCreate')->name('indirect.teacher.create');
+     Route::post('/indirect', 'OnlineZoomClassesController@storeIndirect')->name('indirect.teacher.store');
+     Route::get('profile', 'ProfileController@index')->name('profile.show');
+     Route::post('profile/{id}', 'ProfileController@update')->name('profile.update');
     });
 
 });
