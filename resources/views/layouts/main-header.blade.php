@@ -33,10 +33,10 @@ header start-->
             <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               @if (App::getLocale() == 'ar')
               {{ LaravelLocalization::getCurrentLocaleName() }}
-             <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
+             <!-- <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt=""> -->
               @else
               {{ LaravelLocalization::getCurrentLocaleName() }}
-              <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
+              <!-- <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt=""> -->
               @endif
               </button>
             <div class="dropdown-menu">
