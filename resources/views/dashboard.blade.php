@@ -201,12 +201,7 @@
                                                         <td>{{$student->email}}</td>
                                                         <td>{{$student->gender->Name}}</td>
                                                         <td>{{$student->grade->Name}}</td>
-                                                        <td>
-                                                            {{--
-                                                                {{$student->classroom->Name_Class}}
-                                                                
-                                                                --}}
-                                                        </td>
+                                                        <td>{{$student->classroom->Name_Class}}</td>
                                                         <td>{{$student->section->Name_Section}}</td>
                                                         <td class="text-success">{{$student->created_at}}</td>
                                                         @empty
