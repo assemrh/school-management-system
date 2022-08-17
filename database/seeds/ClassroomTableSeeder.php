@@ -15,12 +15,15 @@ class ClassroomTableSeeder extends Seeder
             ['en'=> 'First grade', 'ar'=> 'الصف الاول'],
             ['en'=> 'Second grade', 'ar'=> 'الصف الثاني'],
             ['en'=> 'Third grade', 'ar'=> 'الصف الثالث'],
+            ['en'=> 'Fourth grade', 'ar'=> 'الصف الرابع'],
+            ['en'=> 'Fiveth grade', 'ar'=> 'الصف الخامس'],
+            ['en'=> 'Sixeth grade', 'ar'=> 'الصف السادس'],
         ];
 
         foreach ($classrooms as $classroom) {
             Classroom::create([
-            'Name_Class' => $classroom,
-            'Grade_id' => Grade::all()->unique()->random()->id
+            'name_class' => $classroom,
+            'grade_id' => Grade::all()->unique()->random()->id
             ]);
         }
     }

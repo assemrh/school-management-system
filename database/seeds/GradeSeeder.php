@@ -21,7 +21,7 @@ class GradeSeeder extends Seeder
         ];
 
         foreach ($grades as $grade) {
-            Grade::create(['Name' => $grade]);
+            Grade::create(['name' => $grade]);
         }
 
     }

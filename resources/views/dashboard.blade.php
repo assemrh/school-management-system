@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-@section('title')
-{{trans('main_trans.Main_title')}}
-@stop
-<head>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+    @section('title')
+    {{trans('main_trans.Main_title')}}
+    @stop
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="HTML5 Template" />
@@ -195,7 +195,8 @@
                                                 </thead>
                                                 <tbody>
                                                 @forelse(\App\Models\Student::latest()->take(5)->get() as $student)
-                                                    <tr>
+                                                    <tr>{{--
+                                                        
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$student->name}}</td>
                                                         <td>{{$student->email}}</td>
@@ -204,6 +205,7 @@
                                                         <td>{{$student->classroom->Name_Class}}</td>
                                                         <td>{{$student->section->Name_Section}}</td>
                                                         <td class="text-success">{{$student->created_at}}</td>
+                                                        --}}
                                                         @empty
                                                             <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
                                                     </tr>
