@@ -17,13 +17,13 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('Name');
-            $table->bigInteger('Specialization_id')->unsigned();
-            $table->foreign('Specialization_id')->references('id')->on('specializations')->onDelete('cascade');
-            $table->bigInteger('Gender_id')->unsigned();
-            $table->foreign('Gender_id')->references('id')->on('genders')->onDelete('cascade');
-            $table->date('Joining_Date');
-            $table->text('Address');
+            $table->string('name');
+            $table->bigInteger('specialization_id')->unsigned();
+            $table->foreign('specialization_id')->references('id')->on('specializations')->onDelete('cascade');
+            $table->bigInteger('gender_id')->unsigned();
+            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->date('joining_date');
+            $table->text('address');
             $table->timestamps();
         });
     }
