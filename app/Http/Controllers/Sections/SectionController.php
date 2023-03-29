@@ -116,7 +116,7 @@ class SectionController extends Controller
 
   public function getclasses($id)
     {
-        $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
+        $list_classes = Classroom::where("Grade_id", $id)->pluck("name_class", "id");
 
         return $list_classes;
     }
